@@ -28,6 +28,7 @@ RecyclerView.Adapter<myAdapter.MyViewHolder>()
         // populate the data
         val currentIem = productArrayList[position]
         holder.title.text = currentIem.title
+        holder.rating.text = currentIem.rating.toString()
 
         // image view, how to show image in imageView if the image is in form of url(string):
         // 3rd party library is used ie. Picasso
@@ -38,10 +39,12 @@ RecyclerView.Adapter<myAdapter.MyViewHolder>()
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var title: TextView
         var image : ShapeableImageView
+        var rating : TextView
 
         init {
             title = itemView.findViewById(R.id.productTitle)
             image = itemView.findViewById(R.id.productImage)
+            rating = itemView.findViewById(R.id.productRating)
         }
     }
 }
