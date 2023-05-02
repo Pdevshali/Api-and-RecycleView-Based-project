@@ -26,25 +26,30 @@ RecyclerView.Adapter<myAdapter.MyViewHolder>()
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // populate the data
-        val currentIem = productArrayList[position]
-        holder.title.text = currentIem.title
-        holder.rating.text = currentIem.rating.toString()
+        val currentItem = productArrayList[position]
+        holder.title.text = currentItem.title
+        holder.rating.text = currentItem.rating.toString()
+        holder.prize.text ="Price ${currentItem.price.toString()} $ "
 
         // image view, how to show image in imageView if the image is in form of url(string):
         // 3rd party library is used ie. Picasso
 
-        Picasso.get().load(currentIem.thumbnail).into(holder.image);
+        Picasso.get().load(currentItem.thumbnail).into(holder.image);
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+       // declared teh variable from eachitem
         var title: TextView
         var image : ShapeableImageView
         var rating : TextView
+        var prize :TextView
 
+        // Initializing the declared variable
         init {
             title = itemView.findViewById(R.id.productTitle)
             image = itemView.findViewById(R.id.productImage)
             rating = itemView.findViewById(R.id.productRating)
+            prize = itemView.findViewById(R.id.productPrize)
         }
     }
 }
