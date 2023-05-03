@@ -29,7 +29,7 @@ RecyclerView.Adapter<myAdapter.MyViewHolder>()
         val currentItem = productArrayList[position]
         holder.title.text = currentItem.title
         holder.rating.text = currentItem.rating.toString()
-        holder.prize.text ="Price ${currentItem.price.toString()} $ "
+        holder.prize.text = """Price ${currentItem.price} $ """
 
         // image view, how to show image in imageView if the image is in form of url(string):
         // 3rd party library is used ie. Picasso
