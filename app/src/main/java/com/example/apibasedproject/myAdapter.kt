@@ -13,6 +13,22 @@ class myAdapter(val context: Activity, val productArrayList : List<Product>):
 RecyclerView.Adapter<myAdapter.MyViewHolder>()
 {
 
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        // declared teh variable from eachitem
+        var title: TextView
+        var image : ShapeableImageView
+        var rating : TextView
+        var prize :TextView
+
+        // Initializing the declared variable
+        init {
+            title = itemView.findViewById(R.id.productTitle)
+            image = itemView.findViewById(R.id.productImage)
+            rating = itemView.findViewById(R.id.productRating)
+            prize = itemView.findViewById(R.id.productPrize)
+        }
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // use to create view for each item
@@ -37,19 +53,5 @@ RecyclerView.Adapter<myAdapter.MyViewHolder>()
         Picasso.get().load(currentItem.thumbnail).into(holder.image);
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-       // declared teh variable from eachitem
-        var title: TextView
-        var image : ShapeableImageView
-        var rating : TextView
-        var prize :TextView
 
-        // Initializing the declared variable
-        init {
-            title = itemView.findViewById(R.id.productTitle)
-            image = itemView.findViewById(R.id.productImage)
-            rating = itemView.findViewById(R.id.productRating)
-            prize = itemView.findViewById(R.id.productPrize)
-        }
-    }
 }
